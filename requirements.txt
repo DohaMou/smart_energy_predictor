@@ -3,7 +3,7 @@ numpy
 scikit-learn
 xgboost
 sqlalchemy
-psycopg2-binary
+psycopg[binary]
 requests
 holidays
 joblib
