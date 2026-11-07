@@ -242,7 +242,8 @@ with st.sidebar:
             "Weather Analysis",
             "Prediction",
             "Model Performance",
-            "Anomaly Detection"
+            "Anomaly Detection",
+            "About the Project"
         ]
     )
 
@@ -864,6 +865,138 @@ elif page == "Anomaly Detection":
         "These are statistical outliers flagged by the IQR method. "
         "They are not necessarily equipment faults or abnormal "
         "consumer behavior."
+    )
+
+
+# ============================================================
+# 14. ABOUT THE PROJECT PAGE
+# ============================================================
+
+elif page == "About the Project":
+
+    st.title("About Smart Energy Predictor")
+
+    st.write(
+        "Smart Energy Predictor is a Data Science and "
+        "Machine Learning project designed to analyze "
+        "residential energy consumption patterns and "
+        "evaluate hourly consumption predictions."
+    )
+
+    st.divider()
+
+    st.subheader("Project Objectives")
+
+    st.markdown("""
+    - Analyze residential electricity consumption patterns.
+    - Explore the relationship between weather and energy use.
+    - Build predictive models using Machine Learning.
+    - Evaluate prediction accuracy on unseen chronological data.
+    - Identify potential consumption anomalies.
+    """)
+
+    st.divider()
+
+    st.subheader("Data Sources")
+
+    col1, col2 = st.columns(2)
+
+    with col1:
+        st.markdown("### Electricity Consumption")
+        st.write("**Source:** Enedis")
+        st.write("**Geographic area:** Hauts-de-France")
+        st.write("**Period:** 2022")
+        st.write("**Granularity:** Hourly")
+        st.write("**Population:** Residential consumption")
+
+    with col2:
+        st.markdown("### Weather Data")
+        st.write("**Location:** Calais, France")
+        st.write("**Period:** 2022")
+        st.write("**Variable:** Air temperature")
+        st.write("**Granularity:** Hourly")
+
+    st.info(
+        "Important geographic limitation: electricity "
+        "consumption represents a regional residential "
+        "average for Hauts-de-France, not Calais alone. "
+        "Calais weather observations are used as a "
+        "weather proxy."
+    )
+
+    st.divider()
+
+    st.subheader("Machine Learning Methodology")
+
+    st.markdown("""
+    **Algorithm:** XGBoost Regressor
+
+    **Feature Engineering:**
+    - Calendar and time features
+    - Temperature
+    - Weekend and public holiday indicators
+    - Hourly, daily and weekly lag features
+    - 24-hour rolling average
+
+    **Chronological Data Split:**
+    - Training: 70%
+    - Validation: 15%
+    - Testing: 15%
+    """)
+
+    st.divider()
+
+    st.subheader("Model Performance")
+
+    col1, col2, col3 = st.columns(3)
+
+    col1.metric("MAE", "0.0200")
+    col2.metric("RMSE", "0.0276")
+    col3.metric("R² Score", "0.9679")
+
+    st.caption(
+        "Metrics are calculated on the chronological "
+        "2022 test set containing 1,289 observations."
+    )
+
+    st.divider()
+
+    st.subheader("Technologies Used")
+
+    st.markdown("""
+    - **Python** — Data processing and modeling
+    - **Pandas & NumPy** — Data analysis
+    - **Scikit-learn** — Model evaluation
+    - **XGBoost** — Machine Learning
+    - **Plotly** — Interactive visualizations
+    - **Streamlit** — Dashboard development
+    - **PostgreSQL** — Data storage during the pipeline
+    - **Git & GitHub** — Version control
+    """)
+
+    st.divider()
+
+    st.subheader("Limitations")
+
+    st.markdown("""
+    - The analysis covers the year 2022 only.
+    - Consumption data is regional, not city-specific.
+    - Weather data from Calais is used as a proxy.
+    - Predictions are evaluated on a historical test set,
+      not as live future forecasts.
+    - Anomaly detection uses the exploratory IQR statistical
+      method. Flagged observations are not confirmed faults.
+    """)
+
+    st.divider()
+
+    st.subheader("Project Summary")
+
+    st.success(
+        "Smart Energy Predictor demonstrates an end-to-end "
+        "Data Science workflow, from data ingestion and "
+        "feature engineering to Machine Learning evaluation "
+        "and interactive dashboard deployment."
     )
 
 
