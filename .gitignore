@@ -9,3 +9,6 @@ data/processed/*
 !data/processed/.gitkeep
 node_modules/
 .DS_Store
+!data/processed/features_2022.csv
+!data/processed/predictions_test.csv
+src/models/artifacts/
