@@ -18,6 +18,7 @@ CREATE TABLE consumption_hourly (
     location_id INT NOT NULL REFERENCES dim_location(id),
     profile TEXT NOT NULL,
     energy_kwh NUMERIC(14,3) NOT NULL,
+    nb_points NUMERIC(14,1),
     PRIMARY KEY (ts, location_id, profile)
 );
 
@@ -70,3 +71,4 @@ CREATE TABLE alerts (
 
 INSERT INTO dim_location (name, region, latitude, longitude)
 VALUES ('Calais', 'Hauts-de-France', 50.9513, 1.8587);
+

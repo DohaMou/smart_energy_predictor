@@ -24,7 +24,7 @@ def fetch_weather(start: str, end: str) -> pd.DataFrame:
             "start_date": start,
             "end_date": end,
             "hourly": "temperature_2m,relative_humidity_2m,wind_speed_10m",
-            "timezone": "Europe/Paris",
+            "timezone": "GMT",
         },
         timeout=60,
     )
